@@ -1,0 +1,104 @@
+<html>
+<head>
+<title> To Do List
+</title>
+<script type="text/javascript">
+function Help(){
+	alert("To start, use the text box to write your to do and click on save ");
+}
+
+var remove = document.getElementsByClassName("remove");
+
+
+function Save(){
+	var a = document.getElementById('compose').value;
+    var b = document.createElement("li");
+    var c = document.createTextNode(a);
+    b.appendChild(c);
+    document.getElementById("listcontent").appendChild(b);
+    document.getElementById("compose").value = "";
+     var deletetag = document.createElement("SPAN");
+     var deleteelement = document.createTextNode("delete");
+     deletetag.className = "remove";
+
+     deletetag.appendChild(deleteelement);
+     b.appendChild(deletetag);
+     var i;
+     for(i = 0; i < remove.length; i++){
+     	remove[i].onclick = function(){
+     		var d = this.parentElement;
+     		d.style.display= 'none';
+     	}
+
+     }
+}
+
+
+
+</script>
+
+<style> 
+.remove{
+	color: red;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 5px 0px 5px 0px;
+}
+*{
+	box-sizing: border-box;
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+ul li{
+	background: #eee;
+	width: 900px;
+
+	padding: 12px 8px 12px 8px;
+	position: relative;
+	font-size: 18px;
+
+}
+
+ul li:nth-child(odd){
+	background: #ddd;
+}
+
+.remove{
+	position:absolute;
+	right: 0px;
+	top: 0px;
+	padding: 5px 0px 5px 0px;
+	cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<div id="header" style = "background: blue; padding:50px 30px">
+	<h2 style= "margin: 5px; text-align: center; color: white;"> To Do List </h2>	
+<input id= "compose" type="textfield" placeholder="compose a note" style = "width: 75%;float: left; padding: 10px; font-size: 16px; border: none;"/> 
+<span style = "width: 25%;float: left; padding: 10px; font-size: 16px; background: #d9d9d9; text-align:center" onclick="Save()">     Save  </span>
+
+</div>
+<div id="nav">
+	<div id="leftnav" style = "background: #888; padding:50px 30px; float:left; color: white;" >
+	<button onclick="Help(); ">  Help  </button>
+</div>
+<div id="rightnav" style = "float:left; color: #000;">
+	<ul id="listcontent">
+     <li> visit the cinema 
+     
+     </li>
+	</ul>
+</div>
+</div>
+
+
+
+
+</body>
+</html>
